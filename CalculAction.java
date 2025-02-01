@@ -15,10 +15,6 @@ public class CalculAction extends AbstractAction {
 
 	@Override
 	public void actionPerformed(final ActionEvent e) {
-		String text = this.window.geTextField().getText();
-		System.out.println(text);
-		this.window.geTextField().setText("");
-		JLabel label = this.window.getLabel();
-		label.setText(text);
+		System.out.println("Calcul...");
 	}
 }
