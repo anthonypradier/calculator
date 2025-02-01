@@ -6,6 +6,7 @@ public class StringModel extends DefaultComboBoxModel {
 	private ArrayList<String> strings;
 
 	public StringModel(final String[] strings) {
+		super();
 		this.strings = new ArrayList<String>();
 		for (String s : strings) {
 			this.strings.add(s);
@@ -13,6 +14,7 @@ public class StringModel extends DefaultComboBoxModel {
 	}
 
 	public StringModel() {
+		super();
 		this.strings = new ArrayList<String>();
 	}
 

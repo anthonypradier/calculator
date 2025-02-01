@@ -18,10 +18,7 @@ public class Window extends JFrame {
 	private JButton btn3;
 	private TextField textField1;
 	private TextField textField2;
-	// private ComboBox combobox1;
-	// private ComboBox combobox2;
-	private JComboBox combobox1;
-	private JComboBox combobox2;
+	private JComboBox operatorBox;
 
 	public Window() {
 		super();
@@ -34,15 +31,7 @@ public class Window extends JFrame {
 		this.contentPane = new JPanel();
 		this.label = new JLabel("Résultat: pas encore calculé");
 		this.textField1 = new TextField();
-		this.textField1.setColumns(10);
-
-		this.btn1 = new JButton(new BtnAction(this, "Copier", 1));
-		this.btn2 = new JButton(new BtnAction(this, "Enlever", 2));
-		this.btn3 = new JButton(new BtnAction(this, "Vider", 3));
-
 		this.textField2 = new TextField();
-		this.textField2.setColumns(10);
-
 		this.buildComboBox();
 	}
 
@@ -56,27 +45,18 @@ public class Window extends JFrame {
 		this.setLayout(flowLayout);
 
 		this.contentPane.setBackground(Color.WHITE);
-
-		// this.contentPane.add(this.textField1);
-		// this.contentPane.add(this.textField2);
-
-		// this.contentPane.add(this.calculBtn);
-
-		// this.contentPane.add(this.label);
-
-		this.contentPane.add(this.combobox1);
-		this.contentPane.add(this.btn1);
-		this.contentPane.add(this.combobox2);
-		this.contentPane.add(this.btn2);
-		this.contentPane.add(this.btn3);
+		this.contentPane.add(this.textField1);
+		this.contentPane.add(this.operatorBox);
+		this.contentPane.add(this.textField2);
+		this.contentPane.add(this.calculBtn);
+		this.contentPane.add(this.label);
 
 		this.setContentPane(this.contentPane);
 	}
 
 	private void buildComboBox() {
-		String[] items = new String[] { "item 1", "item 2", "item 3", "item 4" };
-		this.combobox1 = new JComboBox(new StringModel(items));
-		this.combobox2 = new JComboBox(new ModifiableStringModel(items));
+		this.operatorBox = new JComboBox(new OperatorModel());
+
 	}
 
 	public TextField geTextField(final int n) {
@@ -104,23 +84,8 @@ public class Window extends JFrame {
 		}
 	}
 
-	// public ComboBox getComboBox(final int n) {
-	// switch (n) {
-	// case 1:
-	// return this.combobox1;
-	// case 2:
-	// return this.combobox2;
-	// default:
-	// return null;
-	// }
-	// }
-
-	public StringModel getStringModel1() {
-		return (StringModel) this.combobox1.getModel();
-	}
-
-	public ModifiableStringModel getStringModel2() {
-		return (ModifiableStringModel) this.combobox2.getModel();
+	public OperatorModel getOperatorBox() {
+		return (OperatorModel) this.operatorBox.getModel();
 	}
 
 	public JLabel getLabel() {
